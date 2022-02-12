@@ -60,7 +60,6 @@ ext {
     activityVersion = "1.4.0"
     fragmentVersion = "1.4.1"
     retrofitVersion = "2.9.0"
-    okHttpVersion = "4.9.3"
     roomVersion = "2.4.1"
     daggerVersion = "2.15"
     coroutineVersion = '1.6.0'
@@ -99,8 +98,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-    //OKHttp client
-    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     //Coil load Image
     implementation "io.coil-kt:coil-compose:$coilVersion"
     //Coroutines
