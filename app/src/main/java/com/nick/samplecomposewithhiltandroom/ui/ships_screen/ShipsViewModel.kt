@@ -1,4 +1,4 @@
-package com.nick.samplecomposewithhiltandroom
+package com.nick.samplecomposewithhiltandroom.ui.ships_screen
 
 import android.app.Application
 import com.nick.samplecomposewithhiltandroom.utils.ship_service.ShipService
@@ -14,13 +14,17 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainActivityViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
+class ShipsViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
 
     var shipsModelStateFlow = MutableStateFlow<MutableList<ShipsModel>>(mutableListOf())
 
+    init {
+        requestForShipsData()
+    }
+
     @Inject protected lateinit var shipService: ShipService
 
-    fun requestForShipsData() = launch {
+    private fun requestForShipsData() = launch {
         loading.value = true
         flow {
             val shipsList =

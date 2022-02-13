@@ -5,8 +5,6 @@ import androidx.room.Relation
 
 /**
  * One to One relationship
- * parentColumn = "position_id" ---->>>>>> is in the ship model and is the position model id to connect the position model with ship model
- * entityColumn = "positionId" ---->>>>>> is id of position model
  * */
 data class ShipAndPositionModel(
     @Embedded

@@ -1,4 +1,4 @@
-package com.nick.samplecomposewithhiltandroom.ui
+package com.nick.samplecomposewithhiltandroom.ui.ships_screen
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -20,21 +20,22 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberImagePainter
 import coil.request.CachePolicy
 import coil.size.Scale
-import com.nick.samplecomposewithhiltandroom.MainActivityViewModel
 import com.nick.samplecomposewithhiltandroom.R
 import com.nick.samplecomposewithhiltandroom.room_database.ships.ShipsModel
+import com.nick.samplecomposewithhiltandroom.ui.generic_compose_views.LoaderAndErrorHandler
 import com.nick.samplecomposewithhiltandroom.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
 @Composable
-fun ListOfShips(mainActivityViewModel: MainActivityViewModel = viewModel()) {
+fun ListOfShipsScreen(shipsViewModel: ShipsViewModel = hiltViewModel()) {
+    LoaderAndErrorHandler(baseViewModel = shipsViewModel)
     val context = LocalContext.current
     val shipModelList =
-        mainActivityViewModel.shipsModelStateFlow.collectAsState(initial = mutableListOf()).value
+        shipsViewModel.shipsModelStateFlow.collectAsState(initial = mutableListOf()).value
     LazyColumn {
         items(shipModelList) {
             ShipItemView(shipModel = it) { selectedShipDataValue ->

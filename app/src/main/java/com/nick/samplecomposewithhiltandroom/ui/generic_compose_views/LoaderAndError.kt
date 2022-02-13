@@ -1,4 +1,4 @@
-package com.nick.samplecomposewithhiltandroom.ui
+package com.nick.samplecomposewithhiltandroom.ui.generic_compose_views
 
 import androidx.annotation.MainThread
 import androidx.annotation.UiThread
@@ -18,18 +18,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.nick.samplecomposewithhiltandroom.MainActivityViewModel
 import com.nick.samplecomposewithhiltandroom.R
 import com.nick.samplecomposewithhiltandroom.ui.theme.BlackTransparent
 import com.nick.samplecomposewithhiltandroom.ui.theme.Purple200
+import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
 
 @Composable
-fun LoaderAndErrorHandler(mainActivityViewModel: MainActivityViewModel = viewModel()) {
-    val isLoading = mainActivityViewModel.loading.observeAsState(initial = false).value
+fun LoaderAndErrorHandler(baseViewModel: BaseViewModel = viewModel()) {
+    val isLoading = baseViewModel.loading.observeAsState(initial = false).value
     if (isLoading) StartDefaultLoader()
 
     val error =
-        mainActivityViewModel.error.observeAsState(initial = null).value
+        baseViewModel.error.observeAsState(initial = null).value
     if (error != null) ShowOKDialog(title = error, message = "")
 }
 
