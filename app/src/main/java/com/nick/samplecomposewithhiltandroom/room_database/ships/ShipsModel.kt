@@ -32,6 +32,9 @@ data class ShipsModel(
     var url: String?,
     var image: String?,
 ) {
+
+    constructor() : this("",  null,null,  null,  null,null,  null,null,  null,null,  null,null,  null,null,  PositionModel(),-1,  null,null, null, null)
+
     companion object {
         suspend fun insertTheShips(
             shipsModelList: MutableList<ShipsModel>,

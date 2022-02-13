@@ -13,6 +13,8 @@ data class PositionModel(
         var longitude: Double?
 ) {
 
+    constructor() : this(-1, null, null)
+
     companion object {
         suspend fun insertThePosition(positionModel: PositionModel, myRoomDatabase: MyRoomDatabase) =
             flow {

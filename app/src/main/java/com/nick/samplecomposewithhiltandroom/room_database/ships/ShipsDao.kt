@@ -9,4 +9,7 @@ interface ShipsDao : BaseDao<ShipsModel, MutableList<ShipsModel>> {
 
     @Query("SELECT * FROM shipsmodel")
     suspend fun getAllShips(): MutableList<ShipsModel>
+
+    @Query("SELECT * FROM shipsmodel WHERE ship_id=:id")
+    suspend fun getShipById(id: String): ShipsModel?
 }

@@ -7,8 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -21,17 +20,33 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import coil.request.CachePolicy
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.R
 import com.nick.samplecomposewithhiltandroom.room_database.ships.ShipsModel
+import com.nick.samplecomposewithhiltandroom.ui.generic_compose_views.CustomToolbar
 import com.nick.samplecomposewithhiltandroom.ui.generic_compose_views.LoaderAndErrorHandler
 import com.nick.samplecomposewithhiltandroom.utils.extensions.getProgressDrawable
+import com.nick.samplecomposewithhiltandroom.utils.screen_routes.ScreenRoutes.SHIP_DETAILS_SCREEN
 import kotlinx.coroutines.Dispatchers
 
 @Composable
-fun ListOfShipsScreen(shipsViewModel: ShipsViewModel = hiltViewModel()) {
+internal fun ShipsScreen(navController : NavController){
+    val scaffoldState: ScaffoldState = rememberScaffoldState()
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+            CustomToolbar(R.string.list_of_ships)
+        },
+        content = {
+            ListOfShips(navController = navController)
+        })
+}
+
+@Composable
+private fun ListOfShips(navController : NavController, shipsViewModel: ShipsViewModel = hiltViewModel()) {
     LoaderAndErrorHandler(baseViewModel = shipsViewModel)
     val context = LocalContext.current
     val shipModelList =
@@ -44,6 +59,7 @@ fun ListOfShipsScreen(shipsViewModel: ShipsViewModel = hiltViewModel()) {
                     selectedShipDataValue.ship_name.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
+                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.ship_id}")
             }
         }
     }
