@@ -17,10 +17,12 @@ object MyRoomDatabaseModule {
 
     @Provides
     fun initRoomDataBase(@ApplicationContext context: Context): MyRoomDatabase {
-        return synchronized(LOCK) { Room.databaseBuilder(
-            context.applicationContext,
-            MyRoomDatabase::class.java,
-            DB_NAME
-        ).build() }
+        return synchronized(LOCK) {
+            Room.databaseBuilder(
+                context.applicationContext,
+                MyRoomDatabase::class.java,
+                DB_NAME
+            ).build()
+        }
     }
 }

@@ -11,12 +11,14 @@ import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,8 +27,10 @@ import coil.compose.rememberImagePainter
 import coil.request.CachePolicy
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.R
+import com.nick.samplecomposewithhiltandroom.room_database.ships.ShipsModel
 import com.nick.samplecomposewithhiltandroom.ui.generic_compose_views.CustomToolbar
-import com.nick.samplecomposewithhiltandroom.ui.generic_compose_views.LoaderAndErrorHandler
+import com.nick.samplecomposewithhiltandroom.ui.generic_compose_views.ShowDialog
+import com.nick.samplecomposewithhiltandroom.ui.generic_compose_views.StartDefaultLoader
 import com.nick.samplecomposewithhiltandroom.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
@@ -37,57 +41,65 @@ internal fun ShipDetailsScreen(
     shipId: String,
     shipDetailsViewModel: ShipDetailsViewModel = hiltViewModel()
 ) {
+    shipDetailsViewModel.queryShipById(shipId)
+    val shipData = shipDetailsViewModel.shipDetails.collectAsState().value
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            CustomToolbar(R.string.list_of_ships)
+            CustomToolbar(shipData.ship_name ?: "")
         },
         content = {
-            LoaderAndErrorHandler(baseViewModel = shipDetailsViewModel)
-            ShipDetailsView(shipId)
+            val isLoading = shipDetailsViewModel.loading.observeAsState(initial = false).value
+            if (isLoading) StartDefaultLoader()
+            val error = shipDetailsViewModel.error.observeAsState(initial = null).value
+            if (error != null) ShowDialog(title = error, message = "")
+            ShipDetailsView(shipData)
         })
 }
 
 @Composable
 private fun ShipDetailsView(
-    shipId: String,
-    shipDetailsViewModel: ShipDetailsViewModel = hiltViewModel()
+    shipData: ShipsModel,
 ) {
     val context = LocalContext.current
-    shipDetailsViewModel.queryShipById(shipId)
-    val shipData = shipDetailsViewModel.shipDetails.collectAsState().value
-    if(shipData.image != null && shipData.ship_name != null && shipData.ship_type != null) {
-        Box(contentAlignment = Alignment.TopCenter) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Image(
-                    painter = rememberImagePainter(
-                        data = shipData.image,
-                        builder = {
-                            scale(Scale.FIT)
-                            placeholder(getProgressDrawable(context))
-                            error(R.drawable.ic_baseline_image_24)
-                            fallback(R.drawable.ic_baseline_image_24)
-                            memoryCachePolicy(CachePolicy.ENABLED)
-                            dispatcher(Dispatchers.Default)
-                        }),
-                    contentDescription = null,
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(height = 150.dp)
-                )
-                Text(
-                    text = shipData.ship_name!!,
-                    style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
-                    color = Color.Black,
-                )
-                Text(
-                    text = shipData.ship_type!!,
-                    style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
-                    color = Color.Black,
-                )
-            }
+    Box(contentAlignment = Alignment.TopCenter) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Image(
+                painter = rememberImagePainter(
+                    data = shipData.image,
+                    builder = {
+                        scale(Scale.FIT)
+                        placeholder(getProgressDrawable(context))
+                        error(R.drawable.ic_baseline_image_24)
+                        fallback(R.drawable.ic_baseline_image_24)
+                        memoryCachePolicy(CachePolicy.ENABLED)
+                        dispatcher(Dispatchers.Default)
+                    }),
+                contentDescription = null,
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(height = 300.dp)
+            )
+            Text(
+                text = shipData.ship_name ?: "",
+                style = TextStyle(
+                    fontSize = 21.sp,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold
+                ),
+                color = Color.White,
+            )
+            Text(
+                text = shipData.ship_type ?: "",
+                style = TextStyle(
+                    fontSize = 21.sp,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold
+                ),
+                color = Color.White,
+            )
         }
     }
 }

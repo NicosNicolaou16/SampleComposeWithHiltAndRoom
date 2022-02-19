@@ -32,7 +32,7 @@ fun SampleComposeWithHiltAndRoomTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = LightColorPalette
+    val colors = DarkColorPalette
     /*val colors = if (darkTheme) {
         DarkColorPalette
     } else {

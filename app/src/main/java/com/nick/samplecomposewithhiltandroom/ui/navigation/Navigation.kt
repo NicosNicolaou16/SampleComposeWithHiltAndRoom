@@ -10,20 +10,20 @@ import com.nick.samplecomposewithhiltandroom.ui.launcher_screen.LauncherScreen
 import com.nick.samplecomposewithhiltandroom.ui.ship_details_screen.ShipDetailsScreen
 import com.nick.samplecomposewithhiltandroom.ui.ship_details_screen.SHIP_ID_KEY
 import com.nick.samplecomposewithhiltandroom.ui.ships_screen.ShipsScreen
-import com.nick.samplecomposewithhiltandroom.utils.screen_routes.ScreenRoutes
-import com.nick.samplecomposewithhiltandroom.utils.screen_routes.ScreenRoutes.SHIP_DETAILS_SCREEN
+import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens
+import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens.SHIP_DETAILS_SCREEN
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = ScreenRoutes.LAUNCHER_SCREEN
+        startDestination = Screens.LAUNCHER_SCREEN
     ) {
-        composable(ScreenRoutes.LAUNCHER_SCREEN) {
+        composable(Screens.LAUNCHER_SCREEN) {
             LauncherScreen(navController = navController)
         }
-        composable(ScreenRoutes.SHIPS_SCREEN) {
+        composable(Screens.SHIPS_SCREEN) {
             ShipsScreen(navController)
         }
         composable("${SHIP_DETAILS_SCREEN}/{$SHIP_ID_KEY}", arguments = listOf(

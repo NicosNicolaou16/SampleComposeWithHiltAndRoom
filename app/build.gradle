@@ -67,9 +67,9 @@ ext {
     materialDesignVersion = "1.5.0"
     composeMaterial3Version = "1.0.0-alpha05"
     coilVersion = "1.4.0"
-    hiltVersion = "2.40.5"
+    hiltVersion = '2.41'
     hiltCompilerVersion = "1.0.0"
-    composeNavigationVersion = "2.4.0"
+    composeNavigationVersion = '2.4.1'
     composeHiltNavigationVersion = "1.0.0"
 }
 

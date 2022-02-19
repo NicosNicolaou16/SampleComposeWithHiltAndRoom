@@ -26,8 +26,6 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
 
     @Inject
     protected lateinit var myRoomDatabase: MyRoomDatabase
-    @Inject
-    protected lateinit var sampleComposeWithHiltAndRoomApplication: SampleComposeWithHiltAndRoomApplication
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
@@ -37,17 +35,17 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
             is HttpException -> {
                 val responseBody: ResponseBody? = e.response()?.errorBody()
                 val errorMessage = responseBody?.let { getErrorMessage(it.string()) }
-                    ?: sampleComposeWithHiltAndRoomApplication.getString(R.string.something_went_wrong)
+                    ?: getApplication<SampleComposeWithHiltAndRoomApplication>().getString(R.string.something_went_wrong)
                 errorMessage
             }
             is SocketTimeoutException -> {
-                sampleComposeWithHiltAndRoomApplication.getString(R.string.something_went_wrong_with_server)
+                getApplication<SampleComposeWithHiltAndRoomApplication>().getString(R.string.something_went_wrong_with_server)
             }
             is IOException -> {
-                sampleComposeWithHiltAndRoomApplication.getString(R.string.check_your_internet_connection)
+                getApplication<SampleComposeWithHiltAndRoomApplication>().getString(R.string.check_your_internet_connection)
             }
             else -> {
-                e.message ?: sampleComposeWithHiltAndRoomApplication.getString(R.string.something_went_wrong)
+                e.message ?: getApplication<SampleComposeWithHiltAndRoomApplication>().getString(R.string.something_went_wrong)
             }
         }
     }
@@ -59,7 +57,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
             jsonObject.optString("message")//depend from server the json key - this is an example
         } catch (e: Exception) {
             e.message
-            sampleComposeWithHiltAndRoomApplication.getString(R.string.something_went_wrong)
+            getApplication<SampleComposeWithHiltAndRoomApplication>().getString(R.string.something_went_wrong)
         }
     }
 

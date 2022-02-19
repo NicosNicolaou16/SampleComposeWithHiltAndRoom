@@ -13,7 +13,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.nick.samplecomposewithhiltandroom.R
-import com.nick.samplecomposewithhiltandroom.utils.screen_routes.ScreenRoutes.SHIPS_SCREEN
+import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens.SHIPS_SCREEN
 import kotlinx.coroutines.delay
 
 @Composable

@@ -9,7 +9,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.nick.samplecomposewithhiltandroom.ui.theme.Purple200
+import com.nick.samplecomposewithhiltandroom.ui.theme.Purple700
 
 @Composable
 fun CustomToolbar(title: Int) {
@@ -25,7 +25,26 @@ fun CustomToolbar(title: Int) {
             )
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = Purple200
+            containerColor = Color.DarkGray
+        )
+    )
+}
+
+@Composable
+fun CustomToolbar(title: String) {
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                title,
+                style = TextStyle(
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 21.sp
+                )
+            )
+        },
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = Color.DarkGray
         )
     )
 }

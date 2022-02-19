@@ -10,28 +10,15 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.DialogProperties
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.nick.samplecomposewithhiltandroom.R
 import com.nick.samplecomposewithhiltandroom.ui.theme.BlackTransparent
 import com.nick.samplecomposewithhiltandroom.ui.theme.Purple200
-import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
-
-@Composable
-fun LoaderAndErrorHandler(baseViewModel: BaseViewModel = viewModel()) {
-    val isLoading = baseViewModel.loading.observeAsState(initial = false).value
-    if (isLoading) StartDefaultLoader()
-
-    val error =
-        baseViewModel.error.observeAsState(initial = null).value
-    if (error != null) ShowOKDialog(title = error, message = "")
-}
 
 @UiThread
 @MainThread
@@ -47,15 +34,10 @@ fun StartDefaultLoader() {
     }
 }
 
-/**
- * this method uses to show a Alert Dialog message
- * @param title custom string message to show on the Alert Dialog
- * @param message custom string message to show on the Alert Dialog
- * */
 @UiThread
 @MainThread
 @Composable
-fun ShowOKDialog(
+fun ShowDialog(
     title: String?,
     message: String?
 ) {
