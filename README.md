@@ -6,7 +6,6 @@ Hilt <br />
 Room Database <br />
 Coroutines <br />
 Kotlin ktx <br />
-Live Data <br />
 MVVM <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
 
