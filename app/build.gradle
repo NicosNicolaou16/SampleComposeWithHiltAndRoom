@@ -65,10 +65,11 @@ ext {
     coroutineVersion = '1.6.0'
     multidexVersion = "2.0.1"
     materialDesignVersion = "1.5.0"
-    composeMaterial3Version = '1.0.0-alpha06'
+    swipeRefreshLayoutVersion = "1.1.0"
     coilVersion = "1.4.0"
     hiltVersion = '2.41'
     hiltCompilerVersion = "1.0.0"
+    composeMaterial3Version = '1.0.0-alpha06'
     composeNavigationVersion = '2.4.1'
     composeHiltNavigationVersion = "1.0.0"
 }
@@ -79,7 +80,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$coreKtxVersion"
-    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayoutVersion"
     //View Model KTX and LiveData and Live Cycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion"
     //noinspection LifecycleAnnotationProcessorWithJava8
