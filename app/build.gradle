@@ -66,7 +66,7 @@ ext {
     multidexVersion = "2.0.1"
     materialDesignVersion = "1.5.0"
     swipeRefreshLayoutVersion = "1.1.0"
-    coilVersion = "1.4.0"
+    coilVersion = "2.0.0-rc03"
     hiltVersion = '2.41'
     hiltCompilerVersion = "1.0.0"
     composeMaterial3Version = '1.0.0-alpha10'

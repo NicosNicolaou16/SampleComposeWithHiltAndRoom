@@ -1,7 +1,6 @@
 package com.nick.samplecomposewithhiltandroom.ui.ships_screen
 
 import android.widget.Toast
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,8 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import coil.compose.rememberImagePainter
+import coil.compose.AsyncImage
 import coil.request.CachePolicy
+import coil.request.ImageRequest
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.R
 import com.nick.samplecomposewithhiltandroom.room_database.ships.ShipsModel
@@ -93,17 +93,16 @@ private fun ShipItemView(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            Image(
-                painter = rememberImagePainter(
-                    data = shipModel.image,
-                    builder = {
-                        scale(Scale.FIT)
-                        placeholder(getProgressDrawable(context))
-                        error(R.drawable.ic_baseline_image_24)
-                        fallback(R.drawable.ic_baseline_image_24)
-                        memoryCachePolicy(CachePolicy.ENABLED)
-                        dispatcher(Dispatchers.Default)
-                    }),
+            AsyncImage(
+                model = ImageRequest.Builder(context = context).apply {
+                    data(shipModel.image)
+                    scale(Scale.FIT)
+                    placeholder(getProgressDrawable(context))
+                    error(R.drawable.ic_baseline_image_24)
+                    fallback(R.drawable.ic_baseline_image_24)
+                    memoryCachePolicy(CachePolicy.ENABLED)
+                    dispatcher(Dispatchers.Default)
+                }.build(),
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier

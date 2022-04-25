@@ -1,6 +1,5 @@
 package com.nick.samplecomposewithhiltandroom.ui.ship_details_screen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,8 +22,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.rememberImagePainter
+import coil.compose.AsyncImage
 import coil.request.CachePolicy
+import coil.request.ImageRequest
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.R
 import com.nick.samplecomposewithhiltandroom.room_database.ships.ShipsModel
@@ -65,17 +65,16 @@ private fun ShipDetailsView(
     val context = LocalContext.current
     Box(contentAlignment = Alignment.TopCenter) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                painter = rememberImagePainter(
-                    data = shipData.image,
-                    builder = {
-                        scale(Scale.FIT)
-                        placeholder(getProgressDrawable(context))
-                        error(R.drawable.ic_baseline_image_24)
-                        fallback(R.drawable.ic_baseline_image_24)
-                        memoryCachePolicy(CachePolicy.ENABLED)
-                        dispatcher(Dispatchers.Default)
-                    }),
+            AsyncImage(
+                model = ImageRequest.Builder(context = context).apply {
+                    data(shipData.image)
+                    scale(Scale.FIT)
+                    placeholder(getProgressDrawable(context))
+                    error(R.drawable.ic_baseline_image_24)
+                    fallback(R.drawable.ic_baseline_image_24)
+                    memoryCachePolicy(CachePolicy.ENABLED)
+                    dispatcher(Dispatchers.Default)
+                }.build(),
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
