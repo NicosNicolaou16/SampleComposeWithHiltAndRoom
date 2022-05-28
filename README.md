@@ -7,6 +7,7 @@ Room Database <br />
 Coroutines <br />
 Kotlin ktx <br />
 MVVM <br />
+Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
 
 # Feeds/Urls/End Point (parsing some data from response)
@@ -15,6 +16,6 @@ https://github.com/r-spacex/SpaceX-API (GitHub) <br />
 https://docs.spacexdata.com/?version=latest (Postman) <br />
 
 Target SDK version: 32 <br />
-Minimum SDK version: 24 <br />
+Minimum SDK version: 25 <br />
 Kotlin version: 1.6.21 <br />
 Gradle version: 7.2.0 <br />

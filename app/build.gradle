@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.devtools.ksp' version "1.6.21-1.0.5"
     id 'dagger.hilt.android.plugin'
 }
 
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.nick.samplecomposewithhiltandroom"
-        minSdk 24
+        minSdk 25
         targetSdk 32
         versionCode 1
         versionName "1.0.0"
@@ -63,7 +64,7 @@ ext {
     retrofitVersion = "2.9.0"
     roomVersion = '2.4.2'
     daggerVersion = "2.15"
-    coroutineVersion = '1.6.1'
+    coroutineVersion = '1.6.2'
     multidexVersion = "2.0.1"
     materialDesignVersion = '1.6.0'
     swipeRefreshLayoutVersion = "1.1.0"
@@ -94,7 +95,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     //Room Database
     implementation "androidx.room:room-runtime:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
+    ksp "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     //Retrofit request
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
