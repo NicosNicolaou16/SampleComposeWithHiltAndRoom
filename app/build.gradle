@@ -56,22 +56,22 @@ android {
 }
 
 ext {
-    appCompatVersion = "1.4.1"
-    coreKtxVersion = "1.7.0"
+    appCompatVersion = '1.4.2'
+    coreKtxVersion = '1.8.0'
     lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = "2.4.1"
     activityVersion = "1.4.0"
     fragmentVersion = "1.4.1"
     retrofitVersion = "2.9.0"
     roomVersion = '2.4.2'
     daggerVersion = "2.15"
-    coroutineVersion = '1.6.2'
+    coroutineVersion = '1.6.3'
     multidexVersion = "2.0.1"
-    materialDesignVersion = '1.6.0'
+    materialDesignVersion = '1.6.1'
     swipeRefreshLayoutVersion = "1.1.0"
     coilVersion = '2.1.0'
     hiltVersion = '2.42'
     hiltCompilerVersion = "1.0.0"
-    composeMaterial3Version = '1.0.0-alpha12'
+    composeMaterial3Version = '1.0.0-alpha13'
     composeNavigationVersion = '2.4.2'
     composeHiltNavigationVersion = "1.0.0"
 }
