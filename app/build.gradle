@@ -52,7 +52,6 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    namespace 'com.nick.samplecomposewithhiltandroom'
 }
 
 ext {
@@ -69,7 +68,7 @@ ext {
     materialDesignVersion = '1.6.1'
     swipeRefreshLayoutVersion = "1.1.0"
     coilVersion = '2.1.0'
-    hiltVersion = '2.42'
+    hiltVersion = '2.43'
     hiltCompilerVersion = "1.0.0"
     composeMaterial3Version = '1.0.0-alpha14'
     composeNavigationVersion = '2.5.0'
