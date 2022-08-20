@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.nick.samplecomposewithhiltandroom"
         minSdk 25
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0.0"
 
@@ -29,8 +29,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            shrinkResources false
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -67,10 +67,10 @@ ext {
     multidexVersion = "2.0.1"
     materialDesignVersion = '1.6.1'
     swipeRefreshLayoutVersion = "1.1.0"
-    coilVersion = '2.1.0'
+    coilVersion = '2.2.0'
     hiltVersion = '2.43.2'
     hiltCompilerVersion = "1.0.0"
-    composeMaterial3Version = '1.0.0-alpha14'
+    composeMaterial3Version = '1.0.0-alpha16'
     composeNavigationVersion = '2.5.1'
     composeHiltNavigationVersion = "1.0.0"
 }

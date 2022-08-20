@@ -48,8 +48,8 @@
 }
 
 # Retain generic signatures of TypeToken and its subclasses with R8 version 3.0 and higher.
--keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
--keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
+-keep,allowobfuscation class com.google.gson.reflect.TypeToken
+-keep,allowobfuscation class * extends com.google.gson.reflect.TypeToken
 
 ##---------------End: proguard configuration for Gson  ----------
 
@@ -101,21 +101,6 @@
 -keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
 # End Retrofit proguard rules
 
-# Begin OkHttp proguard rules
-# JSR 305 annotations are for embedding nullability information.
--dontwarn javax.annotation.**
-
-# A resource is loaded with a relative path so the package of this class must be preserved.
--keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
-
-# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
--dontwarn org.codehaus.mojo.animal_sniffer.*
-
-# OkHttp platform used only on JVM and when Conscrypt dependency is available.
--dontwarn okhttp3.internal.platform.ConscryptPlatform
--dontwarn org.conscrypt.ConscryptHostnameVerifier
-# End OkHttp proguard rules
-
 # Please add these rules to your existing keep rules in order to suppress warnings.
 # This is generated automatically by the Android Gradle plugin.
 -dontwarn org.bouncycastle.jsse.BCSSLParameters
@@ -126,3 +111,9 @@
 -dontwarn org.openjsse.javax.net.ssl.SSLParameters
 -dontwarn org.openjsse.javax.net.ssl.SSLSocket
 -dontwarn org.openjsse.net.ssl.OpenJSSE
+
+# Extra Proguard Rules
+-keep class com.nick.samplecomposewithhiltandroom.utils.ship_service.** { *; }
+-keep class kotlin.coroutines.Continuation
+
+-dontwarn org.conscrypt.ConscryptHostnameVerifier
