@@ -55,8 +55,8 @@ android {
 }
 
 ext {
-    appCompatVersion = '1.5.0'
-    coreKtxVersion = '1.8.0'
+    appCompatVersion = '1.5.1'
+    coreKtxVersion = '1.9.0'
     lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = '2.5.1'
     activityVersion = '1.5.1'
     fragmentVersion = '1.5.2'
@@ -67,11 +67,11 @@ ext {
     multidexVersion = "2.0.1"
     materialDesignVersion = '1.6.1'
     swipeRefreshLayoutVersion = "1.1.0"
-    coilVersion = '2.2.0'
+    coilVersion = '2.2.1'
     hiltVersion = '2.43.2'
     hiltCompilerVersion = "1.0.0"
-    composeMaterial3Version = '1.0.0-alpha16'
-    composeNavigationVersion = '2.5.1'
+    composeMaterial3Version = '1.0.0-beta02'
+    composeNavigationVersion = '2.5.2'
     composeHiltNavigationVersion = "1.0.0"
 }
 
