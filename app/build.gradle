@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version "1.7.10-1.0.6"
+    id 'com.google.devtools.ksp' version "1.7.20-1.0.6"
     id 'dagger.hilt.android.plugin'
 }
 
@@ -67,10 +67,10 @@ ext {
     multidexVersion = "2.0.1"
     materialDesignVersion = '1.6.1'
     swipeRefreshLayoutVersion = "1.1.0"
-    coilVersion = '2.2.1'
+    coilVersion = '2.2.2'
     hiltVersion = '2.44'
     hiltCompilerVersion = "1.0.0"
-    composeMaterial3Version = '1.0.0-beta03'
+    composeMaterial3Version = '1.0.0-rc01'
     composeNavigationVersion = '2.5.2'
     composeHiltNavigationVersion = "1.0.0"
 }
