@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version "1.8.10-1.0.9"
+    id 'com.google.devtools.ksp' version "1.8.20-1.0.10"
     id 'dagger.hilt.android.plugin'
 }
 
@@ -35,11 +35,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
     buildFeatures {
         compose true
@@ -53,11 +53,12 @@ android {
         }
     }
     buildToolsVersion '33.0.2'
+    namespace 'com.nick.samplecomposewithhiltandroom'
 }
 
 ext {
     appCompatVersion = '1.6.1'
-    coreKtxVersion = '1.9.0'
+    coreKtxVersion = '1.10.0'
     lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = '2.6.1'
     activityVersion = '1.7.0'
     fragmentVersion = '1.5.6'
@@ -68,14 +69,14 @@ ext {
     multidexVersion = "2.0.1"
     materialDesignVersion = '1.8.0'
     swipeRefreshLayoutVersion = "1.1.0"
-    coilVersion = '2.2.2'
+    coilVersion = '2.3.0'
     hiltVersion = '2.45'
     hiltCompilerVersion = "1.0.0"
     composeMaterial3Version = '1.0.1'
     composeNavigationVersion = '2.5.3'
     composeHiltNavigationVersion = "1.0.0"
-    composeFoundationVersion = '1.4.0'
-    composeMaterialVersion = '1.4.0'
+    composeFoundationVersion = '1.4.1'
+    composeMaterialVersion = '1.4.1'
 }
 
 dependencies {
