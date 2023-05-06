@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version "1.8.20-1.0.10"
+    id 'com.google.devtools.ksp' version "1.8.21-1.0.11"
     id 'dagger.hilt.android.plugin'
 }
 
@@ -60,23 +60,23 @@ ext {
     appCompatVersion = '1.6.1'
     coreKtxVersion = '1.10.0'
     lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = '2.6.1'
-    activityVersion = '1.7.0'
-    fragmentVersion = '1.5.6'
+    activityVersion = '1.7.1'
+    fragmentVersion = '1.5.7'
     retrofitVersion = "2.9.0"
     roomVersion = '2.5.1'
     daggerVersion = "2.15"
-    coroutineVersion = '1.6.4'
+    coroutineVersion = '1.7.0'
     multidexVersion = "2.0.1"
-    materialDesignVersion = '1.8.0'
+    materialDesignVersion = '1.9.0'
     swipeRefreshLayoutVersion = "1.1.0"
     coilVersion = '2.3.0'
-    hiltVersion = '2.45'
+    hiltVersion = '2.46'
     hiltCompilerVersion = "1.0.0"
     composeMaterial3Version = '1.0.1'
     composeNavigationVersion = '2.5.3'
     composeHiltNavigationVersion = "1.0.0"
-    composeFoundationVersion = '1.4.1'
-    composeMaterialVersion = '1.4.1'
+    composeFoundationVersion = '1.4.3'
+    composeMaterialVersion = '1.4.3'
 }
 
 dependencies {
