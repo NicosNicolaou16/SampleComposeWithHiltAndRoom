@@ -61,7 +61,7 @@ ext {
     coreKtxVersion = '1.10.1'
     lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = '2.6.1'
     activityVersion = '1.7.2'
-    fragmentVersion = '1.5.7'
+    fragmentVersion = '1.6.0'
     retrofitVersion = "2.9.0"
     roomVersion = '2.5.1'
     daggerVersion = "2.15"
@@ -73,7 +73,7 @@ ext {
     hiltVersion = '2.46.1'
     hiltCompilerVersion = "1.0.0"
     composeMaterial3Version = '1.1.0'
-    composeNavigationVersion = '2.5.3'
+    composeNavigationVersion = '2.6.0'
     composeHiltNavigationVersion = "1.0.0"
     composeFoundationVersion = '1.4.3'
     composeMaterialVersion = '1.4.3'
