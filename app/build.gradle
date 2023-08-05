@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version "1.9.0-1.0.12"
+    id 'com.google.devtools.ksp' version "1.9.0-1.0.13"
     id 'dagger.hilt.android.plugin'
 }
 
@@ -61,11 +61,11 @@ ext {
     coreKtxVersion = '1.10.1'
     lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = '2.6.1'
     activityVersion = '1.7.2'
-    fragmentVersion = '1.6.0'
+    fragmentVersion = '1.6.1'
     retrofitVersion = "2.9.0"
     roomVersion = '2.5.2'
     daggerVersion = "2.15"
-    coroutineVersion = '1.7.2'
+    coroutineVersion = '1.7.3'
     multidexVersion = "2.0.1"
     materialDesignVersion = '1.9.0'
     swipeRefreshLayoutVersion = "1.1.0"
