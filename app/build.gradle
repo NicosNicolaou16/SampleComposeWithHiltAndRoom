@@ -2,17 +2,17 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version "1.9.0-1.0.13"
+    id 'com.google.devtools.ksp'
     id 'dagger.hilt.android.plugin'
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.nick.samplecomposewithhiltandroom"
         minSdk 25
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0.0"
 
@@ -52,7 +52,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    buildToolsVersion '33.0.2'
+    buildToolsVersion '34.0.0'
     namespace 'com.nick.samplecomposewithhiltandroom'
 }
 
@@ -70,13 +70,13 @@ ext {
     materialDesignVersion = '1.9.0'
     swipeRefreshLayoutVersion = "1.1.0"
     coilVersion = '2.4.0'
-    hiltVersion = '2.46.1'
+    hiltVersion = '2.48'
     hiltCompilerVersion = "1.0.0"
     composeMaterial3Version = '1.1.1'
-    composeNavigationVersion = '2.6.0'
+    composeNavigationVersion = '2.7.1'
     composeHiltNavigationVersion = "1.0.0"
-    composeFoundationVersion = '1.4.3'
-    composeMaterialVersion = '1.4.3'
+    composeFoundationVersion = '1.5.0'
+    composeMaterialVersion = '1.5.0'
 }
 
 dependencies {
@@ -113,8 +113,8 @@ dependencies {
     implementation "com.google.android.material:material:$materialDesignVersion"
     //Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
-    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
-    kapt "androidx.hilt:hilt-compiler:$hiltCompilerVersion"
+    ksp "com.google.dagger:hilt-compiler:$hiltVersion"
+    ksp "androidx.hilt:hilt-compiler:$hiltCompilerVersion"
     //Multidex
     implementation "androidx.multidex:multidex:$multidexVersion"
     //Compose

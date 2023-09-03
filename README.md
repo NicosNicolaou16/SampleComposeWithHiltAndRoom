@@ -17,5 +17,5 @@ https://docs.spacexdata.com/?version=latest (Postman) <br />
 
 Target SDK version: 33 <br />
 Minimum SDK version: 25 <br />
-Kotlin version: 1.9.0 <br />
-Gradle version: 8.1.0 <br />
+Kotlin version: 1.9.10 <br />
+Gradle version: 8.1.1 <br />
