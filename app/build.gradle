@@ -58,8 +58,8 @@ android {
 
 ext {
     appCompatVersion = '1.6.1'
-    coreKtxVersion = '1.10.1'
-    lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = '2.6.1'
+    coreKtxVersion = '1.12.0'
+    lifeCycleAndLiveDataCompilerAndViewModelKTXVersion = '2.6.2'
     activityVersion = '1.7.2'
     fragmentVersion = '1.6.1'
     retrofitVersion = "2.9.0"
@@ -72,11 +72,11 @@ ext {
     coilVersion = '2.4.0'
     hiltVersion = '2.48'
     hiltCompilerVersion = "1.0.0"
-    composeMaterial3Version = '1.1.1'
-    composeNavigationVersion = '2.7.1'
+    composeMaterial3Version = '1.1.2'
+    composeNavigationVersion = '2.7.3'
     composeHiltNavigationVersion = "1.0.0"
-    composeFoundationVersion = '1.5.0'
-    composeMaterialVersion = '1.5.0'
+    composeFoundationVersion = '1.5.2'
+    composeMaterialVersion = '1.5.2'
 }
 
 dependencies {
