@@ -3,7 +3,8 @@ package com.nick.samplecomposewithhiltandroom.ui.ships_screen
 import android.app.Application
 import com.nick.samplecomposewithhiltandroom.room_database.ships.ShipsModel
 import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
-import com.nick.samplecomposewithhiltandroom.utils.ship_service.ShipService
+import com.nick.samplecomposewithhiltandroom.utils.remote.repositories.ships_repository.ShipsRepository
+import com.nick.samplecomposewithhiltandroom.utils.remote.ship_service.ShipService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,19 +23,15 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
         requestForShipsData()
     }
 
-    @Inject protected lateinit var shipService: ShipService
+    @Inject
+    protected lateinit var shipsRepository: ShipsRepository
 
     private fun requestForShipsData() = launch {
         loading.value = true
         flow {
             val shipsList =
-                shipService.getShips() //get the data from server
-            var shipModel = mutableListOf<ShipsModel>()
-            //save the data to local database and return to the view
-            ShipsModel.insertTheShips(shipsList, myRoomDatabase).collect {
-                shipModel = it
-            }
-            emit(shipModel)
+                shipsRepository.fetchAndSaveShipsData() //get the data from server
+            emit(shipsList)
         }.flowOn(Dispatchers.IO)
             .catch { e ->
                 loading.value = false

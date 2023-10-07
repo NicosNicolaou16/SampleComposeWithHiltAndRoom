@@ -36,24 +36,31 @@ import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens.SHIP_DE
 import kotlinx.coroutines.Dispatchers
 
 @Composable
-internal fun ShipsScreen(navController : NavController){
+internal fun ShipsScreen(navController: NavController) {
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
             CustomToolbar(R.string.list_of_ships)
         },
-        content = {
-            ListOfShips(navController = navController)
+        content = { paddingValue ->
+            ListOfShips(navController = navController, paddingValues = paddingValue)
         })
 }
 
 @Composable
-private fun ListOfShips(navController : NavController, shipsViewModel: ShipsViewModel = hiltViewModel()) {
+private fun ListOfShips(
+    navController: NavController,
+    paddingValues: PaddingValues,
+    shipsViewModel: ShipsViewModel = hiltViewModel()
+) {
     val isLoading = shipsViewModel.loading.observeAsState(initial = false).value
     if (isLoading) StartDefaultLoader()
     val error = shipsViewModel.error.observeAsState(initial = "").value
-    if (error != null && !error.isNullOrEmpty()) ShowDialog(title = stringResource(id = R.string.error), message = error)
+    if (error != null && error.isNotEmpty()) ShowDialog(
+        title = stringResource(id = R.string.error),
+        message = error
+    )
     val context = LocalContext.current
     val shipModelList =
         shipsViewModel.shipsModelStateFlow.collectAsState(initial = mutableListOf()).value
