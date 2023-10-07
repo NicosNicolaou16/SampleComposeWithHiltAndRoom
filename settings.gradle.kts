@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "SampleComposeWithHiltAndRoom"
-include ':app'
+include(":app")
