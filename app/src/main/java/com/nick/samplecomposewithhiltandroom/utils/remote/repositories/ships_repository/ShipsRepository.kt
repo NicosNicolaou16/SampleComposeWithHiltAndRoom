@@ -18,4 +18,7 @@ class ShipsRepository @Inject constructor(
         return shipsList
     }
 
+    suspend fun queryToGetAllShips(): MutableList<ShipsModel> {
+        return myRoomDatabase.shipDao().getAllShips()
+    }
 }

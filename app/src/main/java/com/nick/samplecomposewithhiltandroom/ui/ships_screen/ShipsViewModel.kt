@@ -21,6 +21,7 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
 
     init {
         requestForShipsData()
+        offline()
     }
 
     @Inject
@@ -30,7 +31,23 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
         loading.value = true
         flow {
             val shipsList =
-                shipsRepository.fetchAndSaveShipsData() //get the data from server
+                shipsRepository.fetchAndSaveShipsData() //get the data from the server
+            emit(shipsList)
+        }.flowOn(Dispatchers.IO)
+            .catch { e ->
+                loading.value = false
+                error.value = handleErrorMessage(e)
+            }.collect {
+                loading.value = false
+                shipsModelStateFlow.value = it
+            }
+    }
+
+    private fun offline() = launch {
+        loading.value = true
+        flow {
+            val shipsList =
+                shipsRepository.queryToGetAllShips() //get the data from the local database
             emit(shipsList)
         }.flowOn(Dispatchers.IO)
             .catch { e ->
