@@ -6,16 +6,18 @@ import com.nick.samplecomposewithhiltandroom.utils.remote.ship_service.ShipServi
 import javax.inject.Inject
 
 class ShipsRepository @Inject constructor(
-    var shipService: ShipService,
+    private var shipService: ShipService,
     var myRoomDatabase: MyRoomDatabase
 ) {
 
-    suspend fun fetchAndSaveShipsData(): MutableList<ShipsModel> {
-        var shipsList = shipService.getShips()
-        ShipsModel.insertTheShips(shipsList, myRoomDatabase).collect {
-            shipsList = it
-        }
+    suspend fun fetchShipsData(): MutableList<ShipsModel> {
+        val shipsList = shipService.getShips()
+        saveShipDataIntoDatabase(shipsList)
         return shipsList
+    }
+
+    private suspend fun saveShipDataIntoDatabase(shipsModelList: MutableList<ShipsModel>) {
+        ShipsModel.insertTheShips(shipsModelList, myRoomDatabase)
     }
 
     suspend fun queryToGetAllShips(): MutableList<ShipsModel> {
