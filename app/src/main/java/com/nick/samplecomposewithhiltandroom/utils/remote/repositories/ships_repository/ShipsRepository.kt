@@ -3,6 +3,7 @@ package com.nick.samplecomposewithhiltandroom.utils.remote.repositories.ships_re
 import com.nick.samplecomposewithhiltandroom.room_database.init_database.MyRoomDatabase
 import com.nick.samplecomposewithhiltandroom.room_database.ships.ShipsModel
 import com.nick.samplecomposewithhiltandroom.utils.remote.ship_service.ShipService
+import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 class ShipsRepository @Inject constructor(
@@ -17,7 +18,7 @@ class ShipsRepository @Inject constructor(
     }
 
     private suspend fun saveShipDataIntoDatabase(shipsModelList: MutableList<ShipsModel>) {
-        ShipsModel.insertTheShips(shipsModelList, myRoomDatabase)
+        ShipsModel.insertTheShips(shipsModelList, myRoomDatabase).collect()
     }
 
     suspend fun queryToGetAllShips(): MutableList<ShipsModel> {
