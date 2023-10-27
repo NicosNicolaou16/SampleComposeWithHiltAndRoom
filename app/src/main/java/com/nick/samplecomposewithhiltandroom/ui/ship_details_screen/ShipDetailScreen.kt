@@ -2,6 +2,7 @@ package com.nick.samplecomposewithhiltandroom.ui.ship_details_screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.Scaffold
@@ -49,18 +50,19 @@ internal fun ShipDetailsScreen(
         topBar = {
             CustomToolbar(shipData.ship_name ?: "")
         },
-        content = {
+        content = { paddingValue ->
             val isLoading = shipDetailsViewModel.loading.observeAsState(initial = false).value
             if (isLoading) StartDefaultLoader()
             val error = shipDetailsViewModel.error.observeAsState(initial = null).value
             if (error != null) ShowDialog(title = error, message = "")
-            ShipDetailsView(shipData)
+            ShipDetailsView(shipData, paddingValue)
         })
 }
 
 @Composable
 private fun ShipDetailsView(
     shipData: ShipsModel,
+    paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
     Box(contentAlignment = Alignment.TopCenter) {
