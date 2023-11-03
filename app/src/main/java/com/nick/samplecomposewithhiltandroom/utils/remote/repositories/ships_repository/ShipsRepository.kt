@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class ShipsRepository @Inject constructor(
     private var shipService: ShipService,
-    var myRoomDatabase: MyRoomDatabase
+    private var myRoomDatabase: MyRoomDatabase
 ) {
 
     suspend fun fetchShipsData(): MutableList<ShipsModel> {
