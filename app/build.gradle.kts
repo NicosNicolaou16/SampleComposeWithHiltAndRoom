@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.nick.samplecomposewithhiltandroom"
-        minSdk = 25
+        minSdk = 27
         targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
@@ -83,7 +83,7 @@ val composeVersion by extra("1.5.4")
 val composeFoundationVersion by extra("1.5.4")
 val composeMaterialVersion by extra("1.5.4")
 val composeMaterial3Version by extra("1.1.2")
-val composeNavigationVersion by extra("2.7.4")
+val composeNavigationVersion by extra("2.7.5")
 val composeHiltNavigationVersion by extra("1.1.0")
 
 dependencies {

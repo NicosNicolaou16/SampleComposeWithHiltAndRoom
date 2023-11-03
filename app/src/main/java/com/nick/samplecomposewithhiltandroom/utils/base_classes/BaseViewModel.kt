@@ -24,9 +24,6 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
     internal val loading = MutableLiveData<Boolean>()
     internal val error = MutableLiveData<String>()
 
-    @Inject
-    protected lateinit var myRoomDatabase: MyRoomDatabase
-
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
