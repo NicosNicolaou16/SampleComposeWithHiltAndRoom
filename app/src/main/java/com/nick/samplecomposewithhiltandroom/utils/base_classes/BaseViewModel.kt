@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.nick.samplecomposewithhiltandroom.R
-import com.nick.samplecomposewithhiltandroom.application.SampleComposeWithHiltAndRoomApplication
-import com.nick.samplecomposewithhiltandroom.room_database.init_database.MyRoomDatabase
+import com.nick.samplecomposewithhiltandroom.compose.application.SampleComposeWithHiltAndRoomApplication
+import com.nick.samplecomposewithhiltandroom.data.room_database.init_database.MyRoomDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
