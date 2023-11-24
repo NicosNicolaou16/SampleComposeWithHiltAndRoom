@@ -1,4 +1,4 @@
-package com.nick.samplecomposewithhiltandroom.domain.repositories.ship_details_repository
+package com.nick.samplecomposewithhiltandroom.data.repositories.ship_details_repository
 
 import com.nick.samplecomposewithhiltandroom.data.room_database.init_database.MyRoomDatabase
 import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsModel

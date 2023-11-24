@@ -3,7 +3,7 @@ package com.nick.samplecomposewithhiltandroom.compose.ships_screen
 import android.app.Application
 import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsModel
 import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
-import com.nick.samplecomposewithhiltandroom.domain.repositories.ships_repository.ShipsRepository
+import com.nick.samplecomposewithhiltandroom.data.repositories.ships_repository.ShipsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
