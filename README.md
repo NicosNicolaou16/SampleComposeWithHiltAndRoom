@@ -14,7 +14,7 @@ Gradle Kotlin DSL <br />
 Repository <br />
 Offline <br />
 
-# Feeds/Urls/End Point (parsing some data from response)
+# Feeds/Urls/End Point (parsing some data from the response)
 ## (Links References for Ends Points)
 https://github.com/r-spacex/SpaceX-API (GitHub) <br />
 https://docs.spacexdata.com/?version=latest (Postman) <br />
