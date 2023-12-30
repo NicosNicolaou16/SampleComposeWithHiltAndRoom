@@ -1,5 +1,5 @@
 # Sample Compose With Hilt and Room 
-The project is a test project that implements and test JetPack Compose with Hilt and Room Database
+The project is a test project that implements and test JetPack Compose with Hilt and Room Database.
 
 # This Project contains:
 Compose <br />
