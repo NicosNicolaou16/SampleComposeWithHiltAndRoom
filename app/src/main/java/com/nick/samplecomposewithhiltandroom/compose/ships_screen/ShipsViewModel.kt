@@ -24,7 +24,7 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
     }
 
     @Inject
-    protected lateinit var shipsRepository: ShipsRepository
+    internal lateinit var shipsRepository: ShipsRepository
 
     private fun requestForShipsData() = launch {
         loading.value = true

@@ -23,7 +23,7 @@ abstract class MyRoomDatabase : RoomDatabase() {
     abstract fun positionDao(): PositionDao
 
     @Inject
-    protected lateinit var myRoomDatabase: MyRoomDatabase
+    internal lateinit var myRoomDatabase: MyRoomDatabase
 
     companion object {
         internal const val DB_NAME = "DB_NAME"
