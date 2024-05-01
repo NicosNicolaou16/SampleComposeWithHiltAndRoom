@@ -53,7 +53,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.12"
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
     packaging {
         resources {
@@ -63,11 +63,11 @@ android {
 }
 
 val appCompatVersion by extra("1.6.1")
-val coreKtxVersion by extra("1.13.0")
+val coreKtxVersion by extra("1.13.1")
 val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.7.0")
 val swipeRefreshLayoutVersion by extra("1.1.0")
 val activityVersion by extra("1.9.0")
-val fragmentVersion by extra("1.6.2")
+val fragmentVersion by extra("1.7.0")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
@@ -78,10 +78,10 @@ val materialDesignVersion by extra("1.11.0")
 val coilVersion by extra("2.6.0")
 val hiltVersion by extra("2.51.1")
 val hiltCompilerVersion by extra("1.2.0")
-val composeCompilerVersion by extra("1.5.12")
-val composeVersion by extra("1.6.6")
-val composeFoundationVersion by extra("1.6.6")
-val composeMaterialVersion by extra("1.6.6")
+val composeCompilerVersion by extra("1.5.13")
+val composeVersion by extra("1.6.7")
+val composeFoundationVersion by extra("1.6.7")
+val composeMaterialVersion by extra("1.6.7")
 val composeMaterial3Version by extra("1.2.1")
 val composeNavigationVersion by extra("2.7.7")
 val composeHiltNavigationVersion by extra("1.2.0")
