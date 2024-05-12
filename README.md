@@ -1,10 +1,10 @@
 # Sample Compose With Hilt and Room
-This project is an application that applied the latest and recommended Google Technologies such as Jetpack Compose, Hilt Dependencies Injection
+This project is an application that applied the latest and recommended Google technologies for Android such as Jetpack Compose, Hilt Dependencies Injection
 and Room Database.
 
 # This Project contains:
 Compose <br />
-Hilt <br />
+Hilt Dependencies Injection <br />
 Room Database <br />
 Coroutines <br />
 Kotlin ktx <br />
