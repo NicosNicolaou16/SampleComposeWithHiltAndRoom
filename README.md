@@ -1,5 +1,6 @@
-# Sample Compose With Hilt and Room 
-The project is a test project that implements and test JetPack Compose with Hilt and Room Database
+# Sample Compose With Hilt and Room
+This project is an application that applied the latest and recommended Google Technologies such as Jetpack Compose, Hilt Dependencies Injection
+and Room Database.
 
 # This Project contains:
 Compose <br />
@@ -12,7 +13,7 @@ Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
 Gradle Kotlin DSL <br />
 Repository <br />
-Offline <br />
+Offline Support <br />
 
 # Feeds/Urls/End Point (parsing some data from the response)
 ## (Links References for Ends Points)
