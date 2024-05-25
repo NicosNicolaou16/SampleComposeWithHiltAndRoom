@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 android {
@@ -52,8 +53,9 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.13"
+    composeCompiler {
+        enableStrongSkippingMode = true
+        reportsDestination = layout.buildDirectory.dir("compose_compiler")
     }
     packaging {
         resources {
@@ -64,10 +66,10 @@ android {
 
 val appCompatVersion by extra("1.6.1")
 val coreKtxVersion by extra("1.13.1")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.7.0")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.0")
 val swipeRefreshLayoutVersion by extra("1.1.0")
 val activityVersion by extra("1.9.0")
-val fragmentVersion by extra("1.7.0")
+val fragmentVersion by extra("1.7.1")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
@@ -78,7 +80,6 @@ val materialDesignVersion by extra("1.12.0")
 val coilVersion by extra("2.6.0")
 val hiltVersion by extra("2.51.1")
 val hiltCompilerVersion by extra("1.2.0")
-val composeCompilerVersion by extra("1.5.13")
 val composeVersion by extra("1.6.7")
 val composeFoundationVersion by extra("1.6.7")
 val composeMaterialVersion by extra("1.6.7")
@@ -125,7 +126,6 @@ dependencies {
     //Multidex
     implementation("androidx.multidex:multidex:$multidexVersion")
     //Compose
-    implementation("androidx.compose.compiler:compiler:$composeCompilerVersion")
     implementation("androidx.compose.foundation:foundation:$composeFoundationVersion")
     implementation("androidx.compose.material:material:$composeMaterialVersion")
     implementation("androidx.compose.material3:material3:$composeMaterial3Version")
