@@ -64,9 +64,9 @@ android {
     }
 }
 
-val appCompatVersion by extra("1.6.1")
+val appCompatVersion by extra("1.7.0")
 val coreKtxVersion by extra("1.13.1")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.0")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.1")
 val swipeRefreshLayoutVersion by extra("1.1.0")
 val activityVersion by extra("1.9.0")
 val fragmentVersion by extra("1.7.1")
