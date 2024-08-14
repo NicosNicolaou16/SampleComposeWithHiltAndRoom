@@ -4,7 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.10"
 }
 
 android {
@@ -66,10 +66,10 @@ android {
 
 val appCompatVersion by extra("1.7.0")
 val coreKtxVersion by extra("1.13.1")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.2")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.4")
 val swipeRefreshLayoutVersion by extra("1.1.0")
-val activityVersion by extra("1.9.0")
-val fragmentVersion by extra("1.8.0")
+val activityVersion by extra("1.9.1")
+val fragmentVersion by extra("1.8.2")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
@@ -77,8 +77,8 @@ val daggerVersion by extra("2.15")
 val coroutineVersion by extra("1.8.1")
 val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.12.0")
-val coilVersion by extra("2.6.0")
-val hiltVersion by extra("2.51.1")
+val coilVersion by extra("2.7.0")
+val hiltVersion by extra("2.52")
 val hiltCompilerVersion by extra("1.2.0")
 val composeVersion by extra("1.6.8")
 val composeFoundationVersion by extra("1.6.8")
@@ -102,8 +102,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     //Unit Test
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     //Room Database
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
