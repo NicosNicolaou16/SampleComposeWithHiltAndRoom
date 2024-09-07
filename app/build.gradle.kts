@@ -54,7 +54,6 @@ android {
         compose = true
     }
     composeCompiler {
-        enableStrongSkippingMode = true
         reportsDestination = layout.buildDirectory.dir("compose_compiler")
     }
     packaging {
@@ -66,10 +65,10 @@ android {
 
 val appCompatVersion by extra("1.7.0")
 val coreKtxVersion by extra("1.13.1")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.4")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.5")
 val swipeRefreshLayoutVersion by extra("1.1.0")
-val activityVersion by extra("1.9.1")
-val fragmentVersion by extra("1.8.2")
+val activityVersion by extra("1.9.2")
+val fragmentVersion by extra("1.8.3")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
@@ -80,11 +79,11 @@ val materialDesignVersion by extra("1.12.0")
 val coilVersion by extra("2.7.0")
 val hiltVersion by extra("2.52")
 val hiltCompilerVersion by extra("1.2.0")
-val composeVersion by extra("1.6.8")
-val composeFoundationVersion by extra("1.6.8")
-val composeMaterialVersion by extra("1.6.8")
-val composeMaterial3Version by extra("1.2.1")
-val composeNavigationVersion by extra("2.7.7")
+val composeVersion by extra("1.7.0")
+val composeFoundationVersion by extra("1.7.0")
+val composeMaterialVersion by extra("1.7.0")
+val composeMaterial3Version by extra("1.3.0")
+val composeNavigationVersion by extra("2.8.0")
 val composeHiltNavigationVersion by extra("1.2.0")
 
 dependencies {
