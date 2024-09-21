@@ -7,6 +7,7 @@ import com.nick.samplecomposewithhiltandroom.data.repositories.ship_details_repo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -17,7 +18,8 @@ import javax.inject.Inject
 class ShipDetailsViewModel @Inject constructor(application: Application) :
     BaseViewModel(application) {
 
-    val shipDetails = MutableStateFlow<ShipsModel>(ShipsModel())
+    private val _shipDetails = MutableStateFlow<ShipsModel>(ShipsModel())
+    val shipDetails: StateFlow<ShipsModel> = _shipDetails
 
     @Inject
     internal lateinit var shipDetailsRepository: ShipDetailsRepository
@@ -31,7 +33,7 @@ class ShipDetailsViewModel @Inject constructor(application: Application) :
                 error.value = handleErrorMessage(e)
             }.collect {
                 if (it != null) {
-                    shipDetails.value = it
+                    _shipDetails.value = it
                 }
             }
     }

@@ -7,6 +7,7 @@ import com.nick.samplecomposewithhiltandroom.data.repositories.ships_repository.
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ShipsViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
 
-    var shipsModelStateFlow = MutableStateFlow<MutableList<ShipsModel>>(mutableListOf())
+    private val _shipsModelStateFlow = MutableStateFlow<MutableList<ShipsModel>>(mutableListOf())
+    val shipsModelStateFlow: StateFlow<MutableList<ShipsModel>> = _shipsModelStateFlow
 
     init {
         requestForShipsData()
@@ -38,7 +40,7 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
                 error.value = handleErrorMessage(e)
             }.collect {
                 loading.value = false
-                shipsModelStateFlow.value = it
+                _shipsModelStateFlow.value = it
             }
     }
 
@@ -54,7 +56,7 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
                 error.value = handleErrorMessage(e)
             }.collect {
                 loading.value = false
-                shipsModelStateFlow.value = it
+                _shipsModelStateFlow.value = it
             }
     }
 }
