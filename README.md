@@ -3,11 +3,12 @@ This project is an application that applied the latest and recommended Google te
 and Room Database.
 
 # This Project contains:
-Compose <br />
+The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
+[Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) is used for asynchronous tasks. <br />
+[Kotlin KTX](https://developer.android.com/kotlin/ktx) is a collection of Kotlin extensions that offer more concise and expressive code for working with Android APIs and libraries.
+The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
 Hilt Dependencies Injection <br />
 Room Database <br />
-Coroutines <br />
-Kotlin ktx <br />
 MVVM <br />
 Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
