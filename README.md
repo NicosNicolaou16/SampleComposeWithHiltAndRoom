@@ -1,10 +1,9 @@
 # Sample Compose With Hilt and Room
 
-This project is an application that applied the latest and recommended Google technologies for
-Android such as Jetpack Compose, Hilt Dependencies Injection
-and Room Database.
+This project is an application that utilizes the latest and recommended Google technologies for
+Android, including Jetpack Compose, Hilt for dependency injection, and Room for database management.
 
-# This Project contains:
+# The Project Contain the following technologies
 
 The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a
 modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
