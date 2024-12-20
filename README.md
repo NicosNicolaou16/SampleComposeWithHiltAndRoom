@@ -15,7 +15,10 @@ offer more concise and expressive code for working with Android APIs and librari
 The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
 [Retrofit](https://square.github.io/retrofit/) is responsible for making requests and retrieving
 data from the remote server. ([Repository](https://github.com/square/retrofit)) <br />
-Hilt Dependencies Injection <br />
+[Hilt Dependencies Injection](https://developer.android.com/training/dependency-injection/hilt-android)
+is an Android library that simplifies dependency injection by using annotations to automatically
+manage and provide dependencies across components, built on top of
+Dagger. ([Documentation](https://dagger.dev/hilt/)) <br />
 Room Database <br />
 MVVM <br />
 Support kapt and ksp (ksp only setup for Room Database) <br />
