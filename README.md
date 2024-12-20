@@ -19,7 +19,9 @@ data from the remote server. ([Repository](https://github.com/square/retrofit)) 
 is an Android library that simplifies dependency injection by using annotations to automatically
 manage and provide dependencies across components, built on top of
 Dagger. ([Documentation](https://dagger.dev/hilt/)) <br />
-Room Database <br />
+[Room Database](https://developer.android.com/training/data-storage/room) is responsible for saving
+the retrieved data from the remote server, querying data from the local database, and supporting
+offline functionality.  <br />
 [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch) with repository is an
 architecture where the Repository manages data sources (e.g., network, database), the ViewModel
 processes the data for the UI, and the View displays the UI, ensuring a clear separation of
