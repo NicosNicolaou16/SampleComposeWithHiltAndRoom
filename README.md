@@ -20,7 +20,10 @@ is an Android library that simplifies dependency injection by using annotations 
 manage and provide dependencies across components, built on top of
 Dagger. ([Documentation](https://dagger.dev/hilt/)) <br />
 Room Database <br />
-MVVM <br />
+[MVVM](https://developer.android.com/topic/architecture#recommended-app-arch) with repository is an
+architecture where the Repository manages data sources (e.g., network, database), the ViewModel
+processes the data for the UI, and the View displays the UI, ensuring a clear separation of
+concerns. <br />
 Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
 Gradle Kotlin DSL <br />
