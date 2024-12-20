@@ -26,7 +26,9 @@ offline functionality.  <br />
 architecture where the Repository manages data sources (e.g., network, database), the ViewModel
 processes the data for the UI, and the View displays the UI, ensuring a clear separation of
 concerns. <br />
-Support kapt and ksp (ksp only setup for Room Database) <br />
+[KSP](https://developer.android.com/build/migrate-to-ksp) ("Kotlin Symbol Processing") is a tool for
+efficient annotation processing in Kotlin, providing faster code generation and symbol manipulation
+compared to KAPT. [Repository](https://github.com/google/ksp) <br />
 [R8](https://developer.android.com/build/shrink-code) enabled, is a code shrinker and obfuscator for
 Android that optimizes and reduces the size of APKs by removing unused code and resources, while
 also obfuscating the remaining code to improve security. <br />
