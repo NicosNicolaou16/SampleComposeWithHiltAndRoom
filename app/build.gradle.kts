@@ -8,14 +8,14 @@ plugins {
 }
 
 android {
-    compileSdk = 35
-    buildToolsVersion = "35.0.0"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
     namespace = "com.nick.samplecomposewithhiltandroom"
 
     defaultConfig {
         applicationId = "com.nick.samplecomposewithhiltandroom"
-        minSdk = 28
-        targetSdk = 35
+        minSdk = 29
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
 
