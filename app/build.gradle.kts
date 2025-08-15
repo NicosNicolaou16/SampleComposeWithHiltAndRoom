@@ -1,21 +1,23 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.1.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.2.10"
 }
 
 android {
-    compileSdk = 35
-    buildToolsVersion = "35.0.0"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
     namespace = "com.nick.samplecomposewithhiltandroom"
 
     defaultConfig {
         applicationId = "com.nick.samplecomposewithhiltandroom"
-        minSdk = 28
-        targetSdk = 35
+        minSdk = 29
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
 
@@ -47,8 +49,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.fromTarget("17")
+            freeCompilerArgs = listOf("-Xannotation-default-target=param-property")
+        }
     }
     buildFeatures {
         compose = true
@@ -64,24 +69,24 @@ android {
 }
 
 val appCompatVersion by extra("1.7.1")
-val coreKtxVersion by extra("1.16.0")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.9.1")
+val coreKtxVersion by extra("1.17.0")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.9.2")
 val swipeRefreshLayoutVersion by extra("1.1.0")
 val activityVersion by extra("1.10.1")
-val fragmentVersion by extra("1.8.8")
+val fragmentVersion by extra("1.8.9")
 val retrofitVersion by extra("3.0.0")
-val roomVersion by extra("2.7.1")
+val roomVersion by extra("2.7.2")
 val coroutineVersion by extra("1.10.2")
 val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.12.0")
 val coilVersion by extra("2.7.0")
-val hiltVersion by extra("2.56.2")
+val hiltVersion by extra("2.57")
 val hiltCompilerVersion by extra("1.2.0")
-val composeVersion by extra("1.8.2")
-val composeFoundationVersion by extra("1.8.2")
-val composeMaterialVersion by extra("1.8.2")
+val composeVersion by extra("1.9.0")
+val composeFoundationVersion by extra("1.9.0")
+val composeMaterialVersion by extra("1.9.0")
 val composeMaterial3Version by extra("1.3.2")
-val composeNavigationVersion by extra("2.9.0")
+val composeNavigationVersion by extra("2.9.3")
 val composeHiltNavigationVersion by extra("1.2.0")
 
 dependencies {
@@ -99,8 +104,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     //Unit Test
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
     //Room Database
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
