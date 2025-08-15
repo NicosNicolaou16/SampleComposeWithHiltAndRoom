@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
@@ -31,10 +32,9 @@ class ShipDetailsViewModel @Inject constructor(application: Application) :
         }.flowOn(Dispatchers.Default)
             .catch { e ->
                 error.value = handleErrorMessage(e)
-            }.collect {
-                if (it != null) {
-                    _shipDetails.value = it
-                }
+            }.filterNotNull()
+            .collect {
+                _shipDetails.value = it
             }
     }
 }

@@ -36,7 +36,7 @@ data class ShipsModel(
     constructor() : this("",  null,null,  null,  null,null,  null,null,  null,null,  null,null,  null,null,  PositionModel(),-1,  null,null, null, null)
 
     companion object {
-        suspend fun insertTheShips(
+        fun insertTheShips(
             shipsModelList: MutableList<ShipsModel>,
             myRoomDatabase: MyRoomDatabase
         ) =
@@ -50,7 +50,7 @@ data class ShipsModel(
                 ) //return with flow - emit all ships data
             }
 
-        private suspend fun saveShips(
+        private fun saveShips(
             shipsModelList: MutableList<ShipsModel>,
             myRoomDatabase: MyRoomDatabase
         ) =
@@ -71,8 +71,17 @@ data class ShipsModel(
         private suspend fun savePosition(ship: ShipsModel, myRoomDatabase: MyRoomDatabase) {
             PositionModel.insertThePosition(ship.position, myRoomDatabase).collect {
                 ship.positionId =
-                    it.position_id //get the position_id from PositionModel and assign to positionId (ShipModel)
+                    it.positionId //get the position_id from PositionModel and assign to positionId (ShipModel)
             }
+        }
+
+        suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipsModel? {
+            val ship = myRoomDatabase.shipDao().getShipById(id)
+            val position = myRoomDatabase.positionDao().getPositionById(ship?.positionId ?: -1)
+            if (position != null) {
+                ship?.position = position
+            }
+            return ship
         }
     }
 }
