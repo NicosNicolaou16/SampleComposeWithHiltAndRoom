@@ -28,7 +28,7 @@ import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.R
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsModel
+import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsEntity
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.CustomToolbar
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.ShowDialog
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.StartDefaultLoader
@@ -48,7 +48,7 @@ internal fun ShipDetailsScreen(
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            CustomToolbar(shipData.ship_name ?: "")
+            CustomToolbar(shipData.shipName ?: "")
         },
         content = { paddingValue ->
             val isLoading = shipDetailsViewModel.loading.observeAsState(initial = false).value
@@ -61,7 +61,7 @@ internal fun ShipDetailsScreen(
 
 @Composable
 private fun ShipDetailsView(
-    shipData: ShipsModel,
+    shipData: ShipsEntity,
     paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
@@ -84,7 +84,7 @@ private fun ShipDetailsView(
                     .height(height = 300.dp)
             )
             Text(
-                text = shipData.ship_name ?: "",
+                text = shipData.shipName ?: "",
                 style = TextStyle(
                     fontSize = 21.sp,
                     textAlign = TextAlign.Center,
@@ -93,7 +93,7 @@ private fun ShipDetailsView(
                 color = Color.White,
             )
             Text(
-                text = shipData.ship_type ?: "",
+                text = shipData.shipType ?: "",
                 style = TextStyle(
                     fontSize = 21.sp,
                     textAlign = TextAlign.Center,

@@ -3,7 +3,7 @@ package com.nick.samplecomposewithhiltandroom.data.room_database.ships.dao
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipAndPositionModel
+import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipAndPosition
 
 /**
  * One to One relationship Dao
@@ -12,6 +12,6 @@ import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipAndPos
 interface ShipAndPositionDao {
 
     @Transaction
-    @Query("SELECT * FROM PositionModel")
-    fun getShipAndPosition(): MutableList<ShipAndPositionModel>
+    @Query("SELECT * FROM PositionEntity")
+    fun getShipAndPosition(): MutableList<ShipAndPosition>
 }

@@ -3,14 +3,14 @@ package com.nick.samplecomposewithhiltandroom.data.room_database.ships.dao
 import androidx.room.Dao
 import androidx.room.Query
 import com.nick.samplecomposewithhiltandroom.data.room_database.init_database.BaseDao
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.PositionModel
+import com.nick.samplecomposewithhiltandroom.data.room_database.ships.PositionEntity
 
 @Dao
-interface PositionDao: BaseDao<PositionModel, MutableList<PositionModel>> {
+interface PositionDao: BaseDao<PositionEntity, MutableList<PositionEntity>> {
 
-    @Query("SELECT * FROM positionmodel WHERE positionId = :id")
-    suspend fun getPositionById(id: Long): PositionModel?
+    @Query("SELECT * FROM positionentity WHERE id = :id")
+    suspend fun getPositionById(id: Long): PositionEntity?
 
-    @Query("DELETE FROM PositionModel")
+    @Query("DELETE FROM PositionEntity")
     suspend fun deleteAll()
 }

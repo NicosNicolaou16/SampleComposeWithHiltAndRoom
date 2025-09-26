@@ -27,7 +27,7 @@ import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.R
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsModel
+import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsEntity
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.CustomToolbar
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.ShowDialog
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.StartDefaultLoader
@@ -63,16 +63,16 @@ private fun ListOfShips(
     )
     val context = LocalContext.current
     val shipModelList =
-        shipsViewModel.shipsModelStateFlow.collectAsState(initial = mutableListOf()).value
+        shipsViewModel.shipsEntityStateFlow.collectAsState(initial = mutableListOf()).value
     LazyColumn {
-        items(shipModelList, key = { shipModel -> shipModel.ship_id }) {
+        items(shipModelList, key = { shipModel -> shipModel.id }) {
             ShipItemView(shipModel = it) { selectedShipDataValue ->
                 Toast.makeText(
                     context,
-                    selectedShipDataValue.ship_name.toString(),
+                    selectedShipDataValue.shipName.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
-                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.ship_id}")
+                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.id}")
             }
         }
     }
@@ -80,8 +80,8 @@ private fun ListOfShips(
 
 @Composable
 private fun ShipItemView(
-    shipModel: ShipsModel,
-    listener: (ShipsModel) -> Unit
+    shipModel: ShipsEntity,
+    listener: (ShipsEntity) -> Unit
 ) {
     val context = LocalContext.current
     Card(
@@ -125,12 +125,12 @@ private fun ShipItemView(
             ) {
                 Column {
                     Text(
-                        shipModel.ship_name.toString(),
+                        shipModel.shipName.toString(),
                         style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
                         color = Color.White,
                     )
                     Text(
-                        shipModel.ship_type.toString(),
+                        shipModel.shipType.toString(),
                         style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
                         color = Color.White,
                     )
