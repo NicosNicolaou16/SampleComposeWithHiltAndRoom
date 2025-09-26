@@ -1,10 +1,9 @@
 package com.nick.samplecomposewithhiltandroom.compose.ships_screen
 
 import android.app.Application
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsEntity
-import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
+import com.nick.samplecomposewithhiltandroom.compose.ships_screen.models.ShipsUi
 import com.nick.samplecomposewithhiltandroom.data.repositories.ships_repository.ShipsRepository
-import com.nick.samplecomposewithhiltandroom.domain.dto.ShipsDto
+import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,8 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ShipsViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
 
-    private val _shipsEntityStateFlow = MutableStateFlow<MutableList<ShipsDto>>(mutableListOf())
-    val shipsEntityStateFlow: StateFlow<MutableList<ShipsDto>> = _shipsEntityStateFlow
+    private val _shipsEntityStateFlow = MutableStateFlow<MutableList<ShipsUi>>(mutableListOf())
+    val shipsEntityStateFlow: StateFlow<MutableList<ShipsUi>> = _shipsEntityStateFlow
 
     init {
         requestForShipsData()

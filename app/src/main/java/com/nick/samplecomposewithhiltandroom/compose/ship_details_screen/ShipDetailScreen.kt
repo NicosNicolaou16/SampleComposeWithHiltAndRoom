@@ -32,6 +32,7 @@ import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsEntit
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.CustomToolbar
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.ShowDialog
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.StartDefaultLoader
+import com.nick.samplecomposewithhiltandroom.compose.ships_screen.models.ShipDetailsUi
 import com.nick.samplecomposewithhiltandroom.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
@@ -61,7 +62,7 @@ internal fun ShipDetailsScreen(
 
 @Composable
 private fun ShipDetailsView(
-    shipData: ShipsEntity,
+    shipData: ShipDetailsUi,
     paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
