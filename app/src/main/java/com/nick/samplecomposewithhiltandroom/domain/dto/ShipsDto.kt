@@ -36,7 +36,6 @@ data class ShipsDto(
     val successfulLandings: Int?,
     @SerializedName("attempted_landings")
     val attemptedLandings: Int?,
-    @SerializedName("missions")
     val url: String?,
     val image: String?,
 )

@@ -5,5 +5,4 @@ data class ShipsUi(
     val shipName: String?,
     val shipType: String?,
     val image: String?,
-
-    )
+)
