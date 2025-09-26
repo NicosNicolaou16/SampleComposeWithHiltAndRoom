@@ -27,10 +27,10 @@ import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.R
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsModel
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.CustomToolbar
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.ShowDialog
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.StartDefaultLoader
+import com.nick.samplecomposewithhiltandroom.compose.ships_screen.models.ShipsUi
 import com.nick.samplecomposewithhiltandroom.utils.extensions.getProgressDrawable
 import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens.SHIP_DETAILS_SCREEN
 import kotlinx.coroutines.Dispatchers
@@ -63,16 +63,16 @@ private fun ListOfShips(
     )
     val context = LocalContext.current
     val shipModelList =
-        shipsViewModel.shipsModelStateFlow.collectAsState(initial = mutableListOf()).value
+        shipsViewModel.shipsEntityStateFlow.collectAsState(initial = mutableListOf()).value
     LazyColumn {
-        items(shipModelList, key = { shipModel -> shipModel.ship_id }) {
-            ShipItemView(shipModel = it) { selectedShipDataValue ->
+        items(shipModelList, key = { shipModel -> shipModel.id }) {
+            ShipItemView(shipsUi = it) { selectedShipDataValue ->
                 Toast.makeText(
                     context,
-                    selectedShipDataValue.ship_name.toString(),
+                    selectedShipDataValue.shipName.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
-                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.ship_id}")
+                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.id}")
             }
         }
     }
@@ -80,8 +80,8 @@ private fun ListOfShips(
 
 @Composable
 private fun ShipItemView(
-    shipModel: ShipsModel,
-    listener: (ShipsModel) -> Unit
+    shipsUi: ShipsUi,
+    listener: (ShipsUi) -> Unit
 ) {
     val context = LocalContext.current
     Card(
@@ -90,7 +90,7 @@ private fun ShipItemView(
             .fillMaxWidth()
             .padding(5.dp)
             .clickable {
-                listener(shipModel)
+                listener(shipsUi)
             },
         elevation = 3.dp,
         shape = RoundedCornerShape(9.dp),
@@ -102,7 +102,7 @@ private fun ShipItemView(
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(context = context).apply {
-                    data(shipModel.image)
+                    data(shipsUi.image)
                     scale(Scale.FIT)
                     placeholder(getProgressDrawable(context))
                     error(R.drawable.ic_baseline_image_24)
@@ -125,12 +125,12 @@ private fun ShipItemView(
             ) {
                 Column {
                     Text(
-                        shipModel.ship_name.toString(),
+                        shipsUi.shipName.toString(),
                         style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
                         color = Color.White,
                     )
                     Text(
-                        shipModel.ship_type.toString(),
+                        shipsUi.shipType.toString(),
                         style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
                         color = Color.White,
                     )

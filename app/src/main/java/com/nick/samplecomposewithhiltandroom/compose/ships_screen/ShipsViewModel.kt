@@ -1,9 +1,9 @@
 package com.nick.samplecomposewithhiltandroom.compose.ships_screen
 
 import android.app.Application
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsModel
-import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
+import com.nick.samplecomposewithhiltandroom.compose.ships_screen.models.ShipsUi
 import com.nick.samplecomposewithhiltandroom.data.repositories.ships_repository.ShipsRepository
+import com.nick.samplecomposewithhiltandroom.utils.base_classes.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,8 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ShipsViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
 
-    private val _shipsModelStateFlow = MutableStateFlow<MutableList<ShipsModel>>(mutableListOf())
-    val shipsModelStateFlow: StateFlow<MutableList<ShipsModel>> = _shipsModelStateFlow
+    private val _shipsEntityStateFlow = MutableStateFlow<MutableList<ShipsUi>>(mutableListOf())
+    val shipsEntityStateFlow: StateFlow<MutableList<ShipsUi>> = _shipsEntityStateFlow
 
     init {
         requestForShipsData()
@@ -40,7 +40,7 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
                 error.value = handleErrorMessage(e)
             }.collect {
                 loading.value = false
-                _shipsModelStateFlow.value = it
+                _shipsEntityStateFlow.value = it
             }
     }
 
@@ -56,7 +56,7 @@ class ShipsViewModel @Inject constructor(application: Application) : BaseViewMod
                 error.value = handleErrorMessage(e)
             }.collect {
                 loading.value = false
-                _shipsModelStateFlow.value = it
+                _shipsEntityStateFlow.value = it
             }
     }
 }

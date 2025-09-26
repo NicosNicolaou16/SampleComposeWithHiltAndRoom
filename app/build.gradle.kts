@@ -6,7 +6,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.2.10"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.2.20"
 }
 
 android {
@@ -70,24 +70,24 @@ android {
 
 val appCompatVersion by extra("1.7.1")
 val coreKtxVersion by extra("1.17.0")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.9.2")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.9.4")
 val swipeRefreshLayoutVersion by extra("1.1.0")
-val activityVersion by extra("1.10.1")
+val activityVersion by extra("1.11.0")
 val fragmentVersion by extra("1.8.9")
 val retrofitVersion by extra("3.0.0")
-val roomVersion by extra("2.7.2")
+val roomVersion by extra("2.8.1")
 val coroutineVersion by extra("1.10.2")
 val multidexVersion by extra("2.0.1")
-val materialDesignVersion by extra("1.12.0")
+val materialDesignVersion by extra("1.13.0")
 val coilVersion by extra("2.7.0")
-val hiltVersion by extra("2.57")
-val hiltCompilerVersion by extra("1.2.0")
-val composeVersion by extra("1.9.0")
-val composeFoundationVersion by extra("1.9.0")
-val composeMaterialVersion by extra("1.9.0")
-val composeMaterial3Version by extra("1.3.2")
-val composeNavigationVersion by extra("2.9.3")
-val composeHiltNavigationVersion by extra("1.2.0")
+val hiltVersion by extra("2.57.1")
+val hiltCompilerVersion by extra("1.3.0")
+val composeVersion by extra("1.9.2")
+val composeFoundationVersion by extra("1.9.2")
+val composeMaterialVersion by extra("1.9.2")
+val composeMaterial3Version by extra("1.4.0")
+val composeNavigationVersion by extra("2.9.5")
+val composeHiltNavigationVersion by extra("1.3.0")
 
 dependencies {
     //Architecture Library

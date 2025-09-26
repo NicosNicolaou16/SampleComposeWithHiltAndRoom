@@ -34,6 +34,7 @@
 
 # Application classes that will be serialized/deserialized over Gson
 -keep class com.nick.samplecomposewithhiltandroom.data.room_database.ships.** { <fields>; }
+-keep class com.nick.samplecomposewithhiltandroom.domain.dto.** { <fields>; }
 
 # Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
 # JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
