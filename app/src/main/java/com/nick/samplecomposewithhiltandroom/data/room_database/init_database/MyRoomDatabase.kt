@@ -3,9 +3,9 @@ package com.nick.samplecomposewithhiltandroom.data.room_database.init_database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.PositionDao
+import com.nick.samplecomposewithhiltandroom.data.room_database.ships.dao.PositionDao
 import com.nick.samplecomposewithhiltandroom.data.room_database.ships.PositionModel
-import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsDao
+import com.nick.samplecomposewithhiltandroom.data.room_database.ships.dao.ShipsDao
 import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipsModel
 import com.nick.samplecomposewithhiltandroom.data.room_database.type_converter.ConverterPosition
 import javax.inject.Inject

@@ -1,8 +1,9 @@
-package com.nick.samplecomposewithhiltandroom.data.room_database.ships
+package com.nick.samplecomposewithhiltandroom.data.room_database.ships.dao
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
+import com.nick.samplecomposewithhiltandroom.data.room_database.ships.ShipAndPositionModel
 
 /**
  * One to One relationship Dao
