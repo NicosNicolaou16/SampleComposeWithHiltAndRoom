@@ -88,6 +88,9 @@ val composeMaterialVersion by extra("1.10.0")
 val composeMaterial3Version by extra("1.4.0")
 val composeNavigationVersion by extra("2.9.6")
 val composeHiltNavigationVersion by extra("1.3.0")
+val navigation3Version by extra("1.0.0")
+val composeMaterial3AdaptiveVersion by extra("1.3.0-alpha05")
+val kotlinSerializationVersion by extra("1.9.0")
 
 dependencies {
     //Architecture Library
@@ -141,4 +144,11 @@ dependencies {
     implementation("androidx.activity:activity-compose:$activityVersion")
     implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
     implementation("androidx.hilt:hilt-navigation-compose:$composeHiltNavigationVersion")
+    // Navigation 3
+    implementation("androidx.navigation3:navigation3-runtime:${navigation3Version}")
+    implementation("androidx.navigation3:navigation3-ui:${navigation3Version}")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:${lifeCycleAndLiveDataCompilerAndViewModelKTXVersion}")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${kotlinSerializationVersion}")
+    implementation("androidx.compose.material3.adaptive:adaptive:${composeMaterial3AdaptiveVersion}")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:${composeMaterial3AdaptiveVersion}")
 }
