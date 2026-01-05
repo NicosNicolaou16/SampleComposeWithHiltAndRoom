@@ -86,7 +86,7 @@ val composeVersion by extra("1.10.0")
 val composeFoundationVersion by extra("1.10.0")
 val composeMaterialVersion by extra("1.10.0")
 val composeMaterial3Version by extra("1.4.0")
-val composeNavigationVersion by extra("2.9.5")
+val composeNavigationVersion by extra("2.9.6")
 val composeHiltNavigationVersion by extra("1.3.0")
 
 dependencies {
