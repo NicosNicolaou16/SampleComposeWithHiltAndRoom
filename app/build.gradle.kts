@@ -70,7 +70,7 @@ android {
 
 val appCompatVersion by extra("1.7.1")
 val coreKtxVersion by extra("1.17.0")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.9.4")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.10.0")
 val swipeRefreshLayoutVersion by extra("1.1.0")
 val activityVersion by extra("1.12.2")
 val fragmentVersion by extra("1.8.9")
