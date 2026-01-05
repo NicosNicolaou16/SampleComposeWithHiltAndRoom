@@ -142,7 +142,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.activity:activity-compose:$activityVersion")
-    implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
     implementation("androidx.hilt:hilt-navigation-compose:$composeHiltNavigationVersion")
     // Navigation 3
     implementation("androidx.navigation3:navigation3-runtime:${navigation3Version}")
