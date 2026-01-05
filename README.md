@@ -39,6 +39,10 @@ concerns. <br />
 [KSP](https://developer.android.com/build/migrate-to-ksp) ("Kotlin Symbol Processing") is a tool for
 efficient annotation processing in Kotlin, providing faster code generation and symbol manipulation
 compared to KAPT. [Repository](https://github.com/google/ksp) <br />
+[Navigation 3](https://developer.android.com/guide/navigation/navigation-3) for Jetpack Compose is a
+modern, Compose-native navigation system where you manage a
+stack of serializable destination keys and display them with NavDisplay, giving you direct control,
+state retention, and flexible adaptive UI without traditional graphs or routes. <br />
 [R8](https://developer.android.com/build/shrink-code) enabled, is a code shrinker and obfuscator for
 Android that optimizes and reduces the size of APKs by removing unused code and resources, while
 also obfuscating the remaining code to improve security. <br />
