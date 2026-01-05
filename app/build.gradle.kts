@@ -93,13 +93,13 @@ val composeMaterial3AdaptiveVersion by extra("1.3.0-alpha05")
 val kotlinSerializationVersion by extra("1.9.0")
 
 dependencies {
-    //Architecture Library
+    // Architecture Library
     implementation("androidx.activity:activity-ktx:$activityVersion")
     implementation("androidx.fragment:fragment-ktx:$fragmentVersion")
     implementation("androidx.appcompat:appcompat:$appCompatVersion")
     implementation("androidx.core:core-ktx:$coreKtxVersion")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayoutVersion")
-    //View Model KTX and LiveData and Live Cycle
+    // View Model KTX and LiveData and Live Cycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     //noinspection LifecycleAnnotationProcessorWithJava8
     kapt("androidx.lifecycle:lifecycle-compiler:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
@@ -109,28 +109,28 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-    //Room Database
+    // Room Database
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
-    //Retrofit request
+    // Retrofit request
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion")
-    //Coil load Image
+    // Coil load Image
     implementation("io.coil-kt:coil-compose:$coilVersion")
-    //Coroutines
+    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
     //Materials
     implementation("com.google.android.material:material:$materialDesignVersion")
-    //Hilt
+    // Hilt
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-compiler:$hiltVersion")
     ksp("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
-    //Multidex
+    // Multidex
     implementation("androidx.multidex:multidex:$multidexVersion")
-    //Compose
+    // Compose
     implementation("androidx.compose.foundation:foundation:$composeFoundationVersion")
     implementation("androidx.compose.material:material:$composeMaterialVersion")
     implementation("androidx.compose.material3:material3:$composeMaterial3Version")
