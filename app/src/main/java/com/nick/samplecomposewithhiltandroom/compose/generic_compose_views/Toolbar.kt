@@ -25,7 +25,7 @@ fun CustomToolbar(title: Int) {
                 )
             )
         },
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.DarkGray
         )
     )
@@ -45,7 +45,7 @@ fun CustomToolbar(title: String) {
                 )
             )
         },
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.DarkGray
         )
     )

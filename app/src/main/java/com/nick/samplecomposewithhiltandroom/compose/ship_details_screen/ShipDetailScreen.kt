@@ -35,8 +35,6 @@ import com.nick.samplecomposewithhiltandroom.compose.ships_screen.models.ShipDet
 import com.nick.samplecomposewithhiltandroom.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
-const val SHIP_ID_KEY = "ship_id_key"
-
 @Composable
 internal fun ShipDetailsScreen(
     shipId: String,

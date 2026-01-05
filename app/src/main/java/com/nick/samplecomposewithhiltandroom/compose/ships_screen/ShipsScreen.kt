@@ -21,7 +21,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
@@ -30,13 +29,14 @@ import com.nick.samplecomposewithhiltandroom.R
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.CustomToolbar
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.ShowDialog
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.StartDefaultLoader
+import com.nick.samplecomposewithhiltandroom.compose.navigation.navigation_3.Navigator
 import com.nick.samplecomposewithhiltandroom.compose.ships_screen.models.ShipsUi
 import com.nick.samplecomposewithhiltandroom.utils.extensions.getProgressDrawable
-import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens.SHIP_DETAILS_SCREEN
+import com.nick.samplecomposewithhiltandroom.compose.navigation.screen_routes.ShipDetailsScreen
 import kotlinx.coroutines.Dispatchers
 
 @Composable
-internal fun ShipsScreen(navController: NavController) {
+internal fun ShipsScreen(navigator: Navigator) {
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     Scaffold(
         scaffoldState = scaffoldState,
@@ -44,13 +44,13 @@ internal fun ShipsScreen(navController: NavController) {
             CustomToolbar(R.string.list_of_ships)
         },
         content = { paddingValue ->
-            ListOfShips(navController = navController, paddingValues = paddingValue)
+            ListOfShips(navigator = navigator, paddingValues = paddingValue)
         })
 }
 
 @Composable
 private fun ListOfShips(
-    navController: NavController,
+    navigator: Navigator,
     paddingValues: PaddingValues,
     shipsViewModel: ShipsViewModel = hiltViewModel()
 ) {
@@ -72,7 +72,9 @@ private fun ListOfShips(
                     selectedShipDataValue.shipName.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
-                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.id}")
+                navigator.navigate(
+                    ShipDetailsScreen(shipId = it.id)
+                )
             }
         }
     }
