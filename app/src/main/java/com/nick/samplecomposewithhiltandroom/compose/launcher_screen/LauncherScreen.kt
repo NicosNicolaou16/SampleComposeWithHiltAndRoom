@@ -14,14 +14,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.nick.samplecomposewithhiltandroom.R
-import com.nick.samplecomposewithhiltandroom.compose.navigation.navigation_3.Navigator
 import kotlinx.coroutines.delay
 
 @Composable
-fun LauncherScreen(navigator: Navigator) {
+fun LauncherScreen(homeScreen: () -> Unit) {
     LaunchedEffect(key1 = true) {
         delay(2000L)
-        navigator.goBack()
+        homeScreen()
     }
     Box(
         contentAlignment = Alignment.Center,
