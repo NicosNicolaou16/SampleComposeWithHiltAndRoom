@@ -13,19 +13,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.nick.samplecomposewithhiltandroom.R
-import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens
-import com.nick.samplecomposewithhiltandroom.utils.screen_routes.Screens.SHIPS_SCREEN
+import com.nick.samplecomposewithhiltandroom.compose.navigation.navigation_3.Navigator
 import kotlinx.coroutines.delay
 
 @Composable
-fun LauncherScreen(navController: NavController) {
+fun LauncherScreen(navigator: Navigator) {
     LaunchedEffect(key1 = true) {
         delay(2000L)
-        navController.navigate(SHIPS_SCREEN) {
-            popUpTo(Screens.LAUNCHER_SCREEN) { inclusive = true }
-        }
+        navigator.goBack()
     }
     Box(
         contentAlignment = Alignment.Center,

@@ -1,4 +1,4 @@
-package com.nick.samplecomposewithhiltandroom.utils.screen_routes
+package com.nick.samplecomposewithhiltandroom.compose.navigation.screen_routes
 
 import androidx.navigation3.runtime.NavKey
 
