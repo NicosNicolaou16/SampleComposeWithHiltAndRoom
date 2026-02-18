@@ -2,12 +2,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
     id("kotlinx-serialization")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.3.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.10"
 }
 
 android {
@@ -50,17 +48,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlin {
-        compilerOptions {
-            jvmTarget = JvmTarget.fromTarget("21")
-            freeCompilerArgs = listOf("-Xannotation-default-target=param-property")
-        }
-    }
     buildFeatures {
         compose = true
-    }
-    composeCompiler {
-        reportsDestination = layout.buildDirectory.dir("compose_compiler")
     }
     packaging {
         resources {
@@ -69,29 +58,39 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
+        jvmTarget = JvmTarget.fromTarget("21")
+        freeCompilerArgs = listOf("-Xannotation-default-target=param-property")
+    }
+}
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+}
+
 val appCompatVersion by extra("1.7.1")
 val coreKtxVersion by extra("1.17.0")
 val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.10.0")
 val swipeRefreshLayoutVersion by extra("1.2.0")
-val activityVersion by extra("1.12.2")
+val activityVersion by extra("1.12.4")
 val fragmentVersion by extra("1.8.9")
 val retrofitVersion by extra("3.0.0")
 val roomVersion by extra("2.8.4")
 val coroutineVersion by extra("1.10.2")
-val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.13.0")
 val coilVersion by extra("2.7.0")
-val hiltVersion by extra("2.57.2")
+val hiltVersion by extra("2.59.1")
 val hiltCompilerVersion by extra("1.3.0")
-val composeVersion by extra("1.10.0")
-val composeFoundationVersion by extra("1.10.0")
-val composeMaterialVersion by extra("1.10.0")
+val composeVersion by extra("1.10.3")
+val composeFoundationVersion by extra("1.10.3")
+val composeMaterialVersion by extra("1.10.3")
 val composeMaterial3Version by extra("1.4.0")
 val composeNavigationVersion by extra("2.9.6")
 val composeHiltNavigationVersion by extra("1.3.0")
-val navigation3Version by extra("1.0.0")
-val composeMaterial3AdaptiveVersion by extra("1.3.0-alpha05")
-val kotlinSerializationVersion by extra("1.9.0")
+val navigation3Version by extra("1.0.1")
+val composeMaterial3AdaptiveVersion by extra("1.3.0-alpha08")
+val kotlinSerializationVersion by extra("1.10.0")
 
 dependencies {
     // Architecture Library
@@ -103,7 +102,7 @@ dependencies {
     // View Model KTX and LiveData and Live Cycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     //noinspection LifecycleAnnotationProcessorWithJava8
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
+    ksp("androidx.lifecycle:lifecycle-compiler:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     //Unit Test
@@ -129,8 +128,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-compiler:$hiltVersion")
     ksp("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
-    // Multidex
-    implementation("androidx.multidex:multidex:$multidexVersion")
     // Compose
     implementation("androidx.compose.foundation:foundation:$composeFoundationVersion")
     implementation("androidx.compose.material:material:$composeMaterialVersion")
