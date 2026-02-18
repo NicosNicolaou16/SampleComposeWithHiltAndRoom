@@ -46,3 +46,13 @@ This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-starte
 
 -   **Data Source:** [SpaceX-API on GitHub](https://github.com/r-spacex/SpaceX-API)
 -   **API Documentation:** [SpaceX-API Docs (Postman)](https://docs.spacexdata.com/?version=latest)
+
+## ⭐ Stargazers
+
+If you enjoy this project, please give it a star!
+Check out all the stargazers
+here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/SampleComposeWithHiltAndRoom/stargazers)
+
+## 🙏 Support & Contributions
+
+This library is actively maintained. Feedback, bug reports, and feature requests are welcome! Please feel free to **open an issue** or submit a **pull request**.
