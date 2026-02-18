@@ -87,7 +87,7 @@ val composeMaterialVersion by extra("1.10.3")
 val composeMaterial3Version by extra("1.4.0")
 val composeNavigationVersion by extra("2.9.6")
 val composeHiltNavigationVersion by extra("1.3.0")
-val navigation3Version by extra("1.0.0")
+val navigation3Version by extra("1.0.1")
 val composeMaterial3AdaptiveVersion by extra("1.3.0-alpha05")
 val kotlinSerializationVersion by extra("1.9.0")
 
