@@ -78,7 +78,6 @@ val fragmentVersion by extra("1.8.9")
 val retrofitVersion by extra("3.0.0")
 val roomVersion by extra("2.8.4")
 val coroutineVersion by extra("1.10.2")
-val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.13.0")
 val coilVersion by extra("2.7.0")
 val hiltVersion by extra("2.59.1")
@@ -129,8 +128,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-compiler:$hiltVersion")
     ksp("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
-    // Multidex
-    implementation("androidx.multidex:multidex:$multidexVersion")
     // Compose
     implementation("androidx.compose.foundation:foundation:$composeFoundationVersion")
     implementation("androidx.compose.material:material:$composeMaterialVersion")
